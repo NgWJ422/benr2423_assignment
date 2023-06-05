@@ -43,10 +43,10 @@ const detailschema = mongoose.Schema(
             type: String,
             required: true
         },
-        visitor:{
+        visitor_id:{
             type: mongoose.Schema.Types.ObjectId, ref:'Visitor'
         },
-        visitation:{
+        visitation_id:{
             type: mongoose.Schema.Types.ObjectId, ref:'Visitation'
         },
     },

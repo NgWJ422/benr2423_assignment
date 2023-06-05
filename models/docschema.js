@@ -20,7 +20,7 @@ const docschema = mongoose.Schema(
             type: String,
             required: false
         },
-        visitor:{
+        visitor_id:{
             type: mongoose.Schema.Types.ObjectId, ref:'Visitor'
         },
     },

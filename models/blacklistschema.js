@@ -9,13 +9,13 @@ const blacklistschema = mongoose.Schema(
         },
         reason:{
             type: String,
-            required: true
+            required: false
         },
         remark:{
             type: String,
-            required: true
+            required: false
         },
-        blacklist:{
+        blacklist_id:{
             type: mongoose.Schema.Types.ObjectId, ref:'Blacklist'
         },
     },

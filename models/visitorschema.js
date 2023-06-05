@@ -34,27 +34,30 @@ const visitorschema = mongoose.Schema(
             type: String,
             required: true
         },
-        doc_type:{
+        user_id:{
+            type: mongoose.Schema.Types.ObjectId, ref:'User'
+        },
+        doc_type_id:{
             type: mongoose.Schema.Types.ObjectId, ref:'Document'
         },
-        address:{
+        address_id:{
             type: mongoose.Schema.Types.ObjectId, ref:'Address'
         },
-        other:{
+        other_id:{
             type: mongoose.Schema.Types.ObjectId, ref:'Other'
         },
-        detail:[
+        detail_id:[
             {type: mongoose.Schema.Types.ObjectId, ref:'Detail'}
         ],
-        additional:{
+        additional_id:{
             type: mongoose.Schema.Types.ObjectId, ref:'Additional'
         },
-        blacklist:{
+        blacklist_id:{
             type: mongoose.Schema.Types.ObjectId, ref:'Blacklist'
         },
-        visitation:{
+        visitation_id:[{
             type: mongoose.Schema.Types.ObjectId, ref:'Visitation'
-        },
+        }]
     },
     { versionKey: false }
 )

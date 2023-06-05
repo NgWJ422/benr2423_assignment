@@ -42,9 +42,9 @@ const additionalshcema = mongoose.Schema(
             type: String,
             required: false
         },
-        visitor:{
-            type: mongoose.Schema.Types.ObjectId, ref:'Visitor'
-        },
+        visitor_id:{
+            type: mongoose.Schema.Types.ObjectId, ref:'Visitor',
+        }
     },
     { versionKey: false }
 )

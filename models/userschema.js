@@ -25,6 +25,9 @@ const userschema = mongoose.Schema(
         role:{
             type: String,
             required: true
+        },
+        visitor_id:{
+            type: mongoose.Schema.Types.ObjectId,ref:'Visitor'
         }
     },
     { versionKey: false }
