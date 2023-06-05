@@ -1,0 +1,152 @@
+get http://localhost:3000/
+
+###
+
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"1",
+    "password":"1",
+    "name":"1",
+    "gender":"1",
+    "age":"1",
+    "role":"1"
+}
+
+###
+
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"2",
+    "password":"2",
+    "name":"2",
+    "gender":"2",
+    "age":"2",
+    "role":"2"
+}
+
+###
+
+post http://localhost:3000/register
+Content-Type: application/json
+
+
+{
+    "username":"3",
+    "password":"3",
+    "name":"3",
+    "gender":"3",
+    "age":"3",
+    "role":"3"
+}
+
+###
+
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"4",
+    "password":"4",
+    "name":"4",
+    "gender":"4",
+    "age":"4",
+    "role":"4"
+}
+
+###
+
+post http://localhost:3000/register/visitor
+Content-Type: application/json
+
+{
+    "name":"111",
+    "gender":"111",
+    "age":"111",
+    "date_of_birth":"111",
+    "ethnicity":"111",
+    "citizenship":"111",
+    "license_number":"111",
+    "visit_status":"111"
+}
+
+###
+
+post http://localhost:3000/register/visitor
+Content-Type: application/json
+
+{
+    "name":"222",
+    "gender":"222",
+    "age":"222",
+    "date_of_birth":"222",
+    "ethnicity":"222",
+    "citizenship":"222",
+    "license_number":"222",
+    "visit_status":"222"
+}
+
+###
+
+post http://localhost:3000/register/visitor/doc
+Content-Type: application/json
+
+{
+    "doc_expiry_date":"111",
+    "passport":"111"
+}
+
+###
+
+post http://localhost:3000/register/visitor/doc
+Content-Type: application/json
+
+{
+    "doc_expiry_date":"222",
+    "passport":"222"
+}
+
+###
+
+post http://localhost:3000/register/visitor/address
+Content-Type: application/json
+
+{
+    "address":"111",
+    "town":"111",
+    "postcode":"111",
+    "state":"111",
+    "country":"111"
+}
+
+###
+
+post http://localhost:3000/register/visitor/address
+Content-Type: application/json
+
+{
+    "address":"222",
+    "town":"222",
+    "postcode":"222",
+    "state":"222",
+    "country":"222"
+}
+
+###
+post http://localhost:3000/register/visitor/other
+Content-Type: application/json
+
+{
+    "visitor_category":"normal visitor",
+    "telephone_number":"000000000",
+    "vehicle_type":"honda",
+    "vehicle_number":"bnr3333",
+    "pre_register_pass_no":"44555"
+}
+
+
+
+
