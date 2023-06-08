@@ -1,4 +1,6 @@
-//As visitor
+
+
+//insert/create visitor/user data.
 //1. register as user
 //2. enter visitor info
 //3. enter visitor doc
@@ -9,3 +11,11 @@
 //8. enter visitor additional info
 //blacklist?
 
+//read
+//1. visitor read visitor's own info(all own info,user account,visitor info,visitor doc,visitor address,visitor other info,visitor detail and visitation info)
+//2. security read all visitor info
+//3. admin read all visitor info
+
+//update
+//1. visitor update their own info
+//2. 

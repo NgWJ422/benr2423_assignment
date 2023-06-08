@@ -1,0 +1,33 @@
+get http://localhost:3000/admin/visitor/readall
+
+
+###
+get http://localhost:3000/user/read/648248cfce80633d4d8a81ea
+
+###
+get http://localhost:3000/visitor/read/648248f0ce80633d4d8a81ec
+
+###
+get http://localhost:3000/document/read/648248fcce80633d4d8a81ef
+
+###
+get http://localhost:3000/address/read/6482490bce80633d4d8a81f2
+
+###
+get http://localhost:3000/other/read/64824911ce80633d4d8a81f5
+
+###
+get http://localhost:3000/additional/read/6482493fce80633d4d8a81ff
+
+###
+get http://localhost:3000/blacklist/read/64824940ce80633d4d8a8202
+
+###
+get http://localhost:3000/detail/read/6482491ace80633d4d8a81f8
+
+
+###
+get http://localhost:3000/visitation/read/6482493dce80633d4d8a81fb
+
+###
+get http://localhost:3000/visitor/readall/648248f0ce80633d4d8a81ec

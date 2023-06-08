@@ -15,8 +15,8 @@ const blacklistschema = mongoose.Schema(
             type: String,
             required: false
         },
-        blacklist_id:{
-            type: mongoose.Schema.Types.ObjectId, ref:'Blacklist'
+        visitor_id:{
+            type: mongoose.Schema.Types.ObjectId, ref:'Visitor'
         },
     },
     { versionKey: false }

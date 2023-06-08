@@ -1,0 +1,291 @@
+
+//visitor1
+get http://localhost:3000/
+
+###
+
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"1",
+    "password":"1",
+    "name":"1",
+    "gender":"1",
+    "age":"1",
+    "role":"visitor"
+}
+
+###
+
+post http://localhost:3000/register/visitor
+Content-Type: application/json
+
+{
+    "name":"111",
+    "gender":"111",
+    "age":"111",
+    "date_of_birth":"111",
+    "ethnicity":"111",
+    "citizenship":"111",
+    "license_number":"111",
+    "visit_status":"111",
+    "user_id":"648265ec0056844481c08537"
+}
+
+
+###
+
+post http://localhost:3000/register/visitor/doc
+Content-Type: application/json
+
+{
+    "doc_expiry_date":"111",
+    "passport":"111",
+    "visitor_id":"648265f80056844481c08539"
+}
+
+
+###
+
+post http://localhost:3000/register/visitor/address
+Content-Type: application/json
+
+{
+    "address":"111",
+    "town":"111",
+    "postcode":"111",
+    "state":"111",
+    "country":"111",
+    "visitor_id":"6482486cce80633d4d8a81d1"
+}
+
+###
+post http://localhost:3000/register/visitor/other
+Content-Type: application/json
+
+{
+    "visitor_category":"normal visitor",
+    "telephone_number":"000000000",
+    "vehicle_type":"honda",
+    "vehicle_number":"bnr3333",
+    "pre_register_pass_no":"44555",
+    "visitor_id":"6482486cce80633d4d8a81d1"
+}
+
+
+###
+post http://localhost:3000/register/visitor/detail
+Content-Type: application/json
+
+{
+    "no_of_visitor":"1",
+    "purpose_of_visit":"111",
+    "To_meet_host":"111",
+    "host_info":"111",
+    "location_department":"1111",
+    "unit_no":111,
+    "location_info":"hhhh111",
+    "permit_no":"001",
+    "remarks":"11",
+    "visitor_id":"6482486cce80633d4d8a81d1"
+}
+
+
+###
+
+post http://localhost:3000/register/visitor/visitation
+Content-Type: application/json
+
+{
+    "name":"111",
+    "visit_date":"1222",
+    "checkin_time":"1211",
+    "visit_expiry_time":"111",
+    "checkout_time":"44",
+    "visitor_id":"6482486cce80633d4d8a81d1",
+    "detail_id":"64824894ce80633d4d8a81dd"
+
+}
+
+
+###
+post http://localhost:3000/register/visitor/additional
+Content-Type: application/json
+
+{
+    "fever":"yes",
+    "visitor_id":"6482486cce80633d4d8a81d1"
+}
+
+###
+post http://localhost:3000/register/visitor/blacklist
+Content-Type: application/json
+
+{
+    "blacklist_status":"no",
+    "visitor_id":"6482486cce80633d4d8a81d1"
+}
+
+###
+
+//visitor2
+
+###
+
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"2",
+    "password":"2",
+    "name":"2",
+    "gender":"2",
+    "age":"2",
+    "role":"visitor"
+}
+
+###
+
+post http://localhost:3000/register/visitor
+Content-Type: application/json
+
+{
+    "name":"2",
+    "gender":"2",
+    "age":"2",
+    "date_of_birth":"2",
+    "ethnicity":"2",
+    "citizenship":"2",
+    "license_number":"2",
+    "visit_status":"2",
+    "user_id":"648248cfce80633d4d8a81ea"
+}
+
+
+###
+
+post http://localhost:3000/register/visitor/doc
+Content-Type: application/json
+
+{
+    "doc_expiry_date":"2",
+    "passport":"2",
+    "visitor_id":"648248f0ce80633d4d8a81ec"
+}
+
+
+###
+
+post http://localhost:3000/register/visitor/address
+Content-Type: application/json
+
+{
+    "address":"2",
+    "town":"2",
+    "postcode":"2",
+    "state":"2",
+    "country":"2",
+    "visitor_id":"648248f0ce80633d4d8a81ec"
+}
+
+###
+post http://localhost:3000/register/visitor/other
+Content-Type: application/json
+
+{
+    "visitor_category":"normal visitor",
+    "telephone_number":"2",
+    "vehicle_type":"222",
+    "vehicle_number":"222",
+    "pre_register_pass_no":"222",
+    "visitor_id":"648248f0ce80633d4d8a81ec"
+}
+
+
+###
+post http://localhost:3000/register/visitor/detail
+Content-Type: application/json
+
+{
+    "no_of_visitor":"2",
+    "purpose_of_visit":"222",
+    "To_meet_host":"222",
+    "host_info":"222",
+    "location_department":"222",
+    "unit_no":222,
+    "location_info":"22",
+    "permit_no":"222",
+    "remarks":"22",
+    "visitor_id":"648248f0ce80633d4d8a81ec"
+}
+
+
+###
+
+post http://localhost:3000/register/visitor/visitation
+Content-Type: application/json
+
+{
+    "name":"22",
+    "visit_date":"222",
+    "checkin_time":"222",
+    "visit_expiry_time":"222",
+    "checkout_time":"222",
+    "visitor_id":"648248f0ce80633d4d8a81ec",
+    "detail_id":"6482491ace80633d4d8a81f8"
+
+}
+
+###
+post http://localhost:3000/register/visitor/detail
+Content-Type: application/json
+
+{
+    "no_of_visitor":"3",
+    "purpose_of_visit":"333",
+    "To_meet_host":"333",
+    "host_info":"33",
+    "location_department":"33",
+    "unit_no":333333,
+    "location_info":"333",
+    "permit_no":"333",
+    "remarks":"333",
+    "visitor_id":"648248f0ce80633d4d8a81ec"
+}
+
+
+###
+
+post http://localhost:3000/register/visitor/visitation
+Content-Type: application/json
+
+{
+    "name":"3333333",
+    "visit_date":"333333333",
+    "checkin_time":"333",
+    "visit_expiry_time":"3",
+    "checkout_time":"333",
+    "visitor_id":"648248f0ce80633d4d8a81ec",
+    "detail_id":"64824a3ace80633d4d8a8205"
+
+}
+
+###
+post http://localhost:3000/register/visitor/additional
+Content-Type: application/json
+
+{
+    "fever":"222",
+    "visitor_id":"648248f0ce80633d4d8a81ec"
+}
+
+###
+post http://localhost:3000/register/visitor/blacklist
+Content-Type: application/json
+
+{
+    "blacklist_status":"222",
+    "visitor_id":"648248f0ce80633d4d8a81ec"
+}
+

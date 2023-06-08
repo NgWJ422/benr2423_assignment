@@ -1,0 +1,16 @@
+###
+patch http://localhost:3000/visitor/update/648248f0ce80633d4d8a81ec
+Content-Type: application/json
+
+{
+    "name":"333"
+}
+
+###
+patch http://localhost:3000/user/update/648248cfce80633d4d8a81ea
+Content-Type: application/json
+
+{
+    "gender":"333"
+}
+
