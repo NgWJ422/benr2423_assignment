@@ -1,134 +1,150 @@
 ###
 //register as visitor
 post http://localhost:3000/register/visitor
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
 Content-Type: application/json
 
 {
-    "name":"2331",
-    "gender":"111",
-    "age":"111",
-    "date_of_birth":"111",
-    "ethnicity":"111",
-    "citizenship":"111",
-    "license_number":"111",
-    "visit_status":"111"
+    "name":"Alili",
+    "gender":"Male",
+    "age":"22",
+    "date_of_birth":"8 May 2000",
+    "ethnicity":"Malay",
+    "citizenship":"malaysia",
+    "license_number":"44444"
 }
 
 
-//the following are the insert of visitor doc
+//the following are the insert of visitor doc(visitor's own data only)
 ###
 
 post http://localhost:3000/register/visitor/doc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
 Content-Type: application/json
 
 {
-    "doc_expiry_date":"111",
+    "doc_expiry_date":"8 Nov 2033",
     "passport":"111"
 }
 
 ###
 
 post http://localhost:3000/register/visitor/address
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
 Content-Type: application/json
 
 {
-    "address":"111",
-    "town":"111",
-    "postcode":"111",
-    "state":"111",
-    "country":"111"
+    "address":"4, jalan 4, taman 4, 44444 klang4,kedah",
+    "town":"taman 4",
+    "postcode":"44444",
+    "state":"kedah",
+    "country":"malaysia"
 }
 
 ###
 post http://localhost:3000/register/visitor/other
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
 Content-Type: application/json
 
 {
     "visitor_category":"normal visitor",
-    "telephone_number":"000000000",
-    "vehicle_type":"honda",
-    "vehicle_number":"bnr3333",
-    "pre_register_pass_no":"44555"
+    "telephone_number":"4444444",
+    "vehicle_type":"toyota",
+    "vehicle_number":"bnr4444",
+    "pre_register_pass_no":"4444"
 }
 
 ###
 post http://localhost:3000/register/visitor/additional
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
 Content-Type: application/json
 
 {
-    "fever":"yes"
+    "fever":"no",
+    "Sore_throat":"no",
+    "dry_cough":"no",
+    "runny_nose":"no",
+    "shortness_of_breath":"no",
+    "body_ache":"no",
+    "travelled_overseas_last14days":"no",
+    "contact_with_person_with_covid":"no",
+    "recovered_from_covid":"no",
+    "covid_test":"yes"
+}
+
+###
+post http://localhost:3000/register/visitor/blacklist
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
+Content-Type: application/json
+
+{
+    "blacklist_status":"no"
 }
 
 ###
 post http://localhost:3000/register/visitor/detail
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
 Content-Type: application/json
 
 {
-    "no_of_visitor":"1",
-    "purpose_of_visit":"111",
-    "To_meet_host":"111",
-    "host_info":"111",
-    "location_department":"1111",
-    "unit_no":111,
-    "location_info":"hhhh111",
-    "permit_no":"001",
-    "remarks":"11"
+    "no_of_visitor":"4",
+    "purpose_of_visit":"see family",
+    "To_meet_host":"Yang",
+    "host_info":"family",
+    "location_department":"A-2",
+    "unit_no":"222",
+    "location_info":"inside tall appartment",
+    "permit_no":"003",
+    "remarks":"with Chan"
 }
 
 ###
 
 post http://localhost:3000/register/visitor/visitation
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
-Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
 
 {
-    "name":"111",
-    "visit_date":"1222",
-    "checkin_time":"1211",
-    "visit_expiry_time":"111",
-    "checkout_time":"44",
-    "detail_id":"6486da63fa68c9715b5ae34d"
+    "visit_date":"14 June 2022",
+    "checkin_time":"10:30",
+    "visit_expiry_time":"13:30",
+    "overtime_status":"not overtime",
+    "detail_id":"6486fc81db3985a850f7419e"
 
 }
 
 ###
 //the following are read api for visitor or anyone to read their own visitor record
 get http://localhost:3000/user/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
 
 ###
 get http://localhost:3000/visitor/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
 
 ###
 get http://localhost:3000/doc/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
 
 ###
 get http://localhost:3000/address/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
 
 ###
 get http://localhost:3000/other/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
 
 ###
 get http://localhost:3000/additional/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
 
 ###
 get http://localhost:3000/blacklist/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
 ###
 get http://localhost:3000/detail/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzA5Nzg1YmU4ZmRiOWZhYTdmMDg1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTcxNTExfQ.Ke_6JYZ5okA0t4Hosuew1Vk7QBv8BD80MEe43YzDdUw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
 
 ###
 get http://localhost:3000/visitation/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzA5Nzg1YmU4ZmRiOWZhYTdmMDg1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTcxNTExfQ.Ke_6JYZ5okA0t4Hosuew1Vk7QBv8BD80MEe43YzDdUw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
+

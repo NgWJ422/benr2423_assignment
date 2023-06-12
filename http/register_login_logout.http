@@ -1,28 +1,19 @@
 
-Post http://localhost:3000/login
-Content-Type: application/json
-
-{
-    "username":"1",
-    "password":"1"
-}
-
-###
-patch http://localhost:3000/logout
-
+//test to see what is encoded in jwt
 ###
 get http://localhost:3000/showjwt
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzA5Nzg1YmU4ZmRiOWZhYTdmMDg1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTcxNTExfQ.Ke_6JYZ5okA0t4Hosuew1Vk7QBv8BD80MEe43YzDdUw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
+
 ###
 post http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "username":"10",
-    "password":"1",
-    "name":"1",
-    "gender":"1",
-    "age":"1",
+    "username":"Tan",
+    "password":"1234567",
+    "name":"Tan Le",
+    "gender":"Female",
+    "age":"25",
     "role":"security"
 }
 
@@ -31,12 +22,12 @@ post http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "username":"1",
-    "password":"1",
-    "name":"1",
-    "gender":"1",
-    "age":"1",
-    "role":"admin"
+    "username":"Chan",
+    "password":"123456",
+    "name":"Chan Zen Yang",
+    "gender":"Male",
+    "age":"22",
+    "role":"visitor"
 }
 
 ###
@@ -44,10 +35,62 @@ post http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "username":"1000",
-    "password":"1",
-    "name":"1",
-    "gender":"1",
-    "age":"1",
+    "username":"Ali",
+    "password":"123456",
+    "name":"Alili",
+    "gender":"Male",
+    "age":"22",
     "role":"visitor"
 }
+
+###
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"NG",
+    "password":"123456",
+    "name":"Ng Wei Jie",
+    "gender":"Male",
+    "age":"22",
+    "role":"admin"
+}
+
+###
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"NG",
+    "password":"123456"
+}
+
+###
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"Chan",
+    "password":"123456"
+}
+
+###
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"Tan",
+    "password":"1234567"
+}
+
+###
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"Ali",
+    "password":"123456"
+}
+
+###
+patch http://localhost:3000/logout

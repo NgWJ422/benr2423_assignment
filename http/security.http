@@ -1,18 +1,17 @@
 ###
 //register as visitor
 post http://localhost:3000/register/visitor
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
 Content-Type: application/json
 
 {
-    "name":"2331",
-    "gender":"111",
-    "age":"111",
-    "date_of_birth":"111",
-    "ethnicity":"111",
-    "citizenship":"111",
-    "license_number":"111",
-    "visit_status":"111"
+    "name":"Tan Le",
+    "gender":"Male",
+    "age":"22",
+    "date_of_birth":"5 Dec 2001",
+    "ethnicity":"chinese",
+    "citizenship":"malaysia",
+    "license_number":"222"
 }
 
 
@@ -24,7 +23,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "doc_expiry_date":"111",
+    "doc_expiry_date":"23 Jan 2029",
     "passport":"111"
 }
 
@@ -35,11 +34,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "address":"111",
-    "town":"111",
-    "postcode":"111",
-    "state":"111",
-    "country":"111"
+    "address":"2, jalan 2, taman 2, 22222 klang2,kedah",
+    "town":"taman 2",
+    "postcode":"22222",
+    "state":"kedah",
+    "country":"malaysia"
 }
 
 ###
@@ -48,11 +47,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "visitor_category":"normal visitor",
-    "telephone_number":"000000000",
-    "vehicle_type":"honda",
-    "vehicle_number":"bnr3333",
-    "pre_register_pass_no":"44555"
+    "visitor_category":"security as visitor",
+    "telephone_number":"2222222",
+    "vehicle_type":"Myvi",
+    "vehicle_number":"bnr2222",
+    "pre_register_pass_no":"22222"
 }
 
 ###
@@ -61,9 +60,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "fever":"yes"
+    "fever":"no",
+    "Sore_throat":"no",
+    "dry_cough":"no",
+    "runny_nose":"no",
+    "shortness_of_breath":"no",
+    "body_ache":"no",
+    "travelled_overseas_last14days":"no",
+    "contact_with_person_with_covid":"no",
+    "recovered_from_covid":"no",
+    "covid_test":"yes"
 }
-
 ###
 post http://localhost:3000/register/visitor/blacklist
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
@@ -79,15 +86,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "no_of_visitor":"1",
-    "purpose_of_visit":"111",
-    "To_meet_host":"111",
-    "host_info":"111",
-    "location_department":"1111",
-    "unit_no":111,
-    "location_info":"hhhh111",
-    "permit_no":"001",
-    "remarks":"11"
+    "no_of_visitor":"2",
+    "purpose_of_visit":"catching a overtime visitor",
+    "To_meet_host":"Yang",
+    "host_info":"overtime visitor visit this host",
+    "location_department":"A-2",
+    "unit_no":"222",
+    "location_info":"inside tall appartment",
+    "permit_no":"002",
+    "remarks":"no"
 }
 
 ###
@@ -97,24 +104,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "name":"111",
-    "visit_date":"1222",
-    "checkin_time":"1211",
-    "visit_expiry_time":"111",
-    "checkout_time":"44",
+    "visit_date":"14 June 2022",
+    "checkin_time":"13:00",
+    "visit_expiry_time":"no limit",
+    "overtime_status":"",
     "detail_id":"6486fc81db3985a850f7419e"
 
 }
 
 //admin and security read data from database based on criteria they insert
-###
-get http://localhost:3000/security/visitor/readall
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
-
 //if admin or security wants to read all doc from a collection,just put an empty json file
 ###
 post http://localhost:3000/security/user/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzAzODg3MzlhNWY0NDA2MDVkMjM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NTY5ODcxfQ.UIv8sp47K4IRHI7Z64oHTVejJYSYIfh5TQwIgb_Vzdg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhZDFjYTg5OGNmYzQ2ODgwMzI0Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg5NTZ9.BUA0v-iJLYyyx9Pd5WXlbVJVgufqevN6-np6pXBT010
 Content-Type: application/json
 
 {
@@ -124,20 +126,20 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/user/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Nzg4ZmU3MjBhMTE5NzYzNTI3NjAzIiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NjA0MDM4fQ.TxWO94IN16QZlPj3R-w5fwMewatbQFEpZk79WHGYHzM
 Content-Type: application/json
 
 {
-    "username":"7"
+    "username":"NG"
 }
 
 ###
 post http://localhost:3000/security/visitor/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NmQ5ZTVmYTY4Yzk3MTViNWFlMzE1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTU5MjA4fQ.v35S4nVcMuN37bScddVx-rY1TQyewtYeZbiy8khC39A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Nzg4ZmU3MjBhMTE5NzYzNTI3NjAzIiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NjA0MDM4fQ.TxWO94IN16QZlPj3R-w5fwMewatbQFEpZk79WHGYHzM
 Content-Type: application/json
 
 {
-    "name":"2331"
+   
 }
 
 ###
@@ -155,7 +157,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "town":"111"
+    "town":"taman 2"
 }
 
 ###
@@ -164,7 +166,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "vehicle_type":"honda"
+    "vehicle_type":"Myvi"
 }
 
 ###
@@ -182,7 +184,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "blacklist_status":"no"
+    "blacklist_status":"yes"
 }
 
 ###
@@ -191,7 +193,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "host_info":"111"
+    "permit_no":"001"
 }
 
 ###
@@ -200,7 +202,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "name":"111"
+    "visit_date":"13 June 2023"
 }
 
 //the following can be used by both admin and security
@@ -210,7 +212,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "reason":"pdpdppdp"
+    "blacklist_status":"no",
+    "reason":"revoked",
+    "remark":"nothing"
 }
 
 ###
@@ -219,7 +223,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "To_meet_host":"pdpdppdp"
+    "To_meet_host":"Cheok"
 }
 
 ###
@@ -228,5 +232,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N
 Content-Type: application/json
 
 {
-    "checkout_time":"wwwwwwwwww"
+    "checkout_time":"23:55",
+    "overtime_status":"overtime"
 }

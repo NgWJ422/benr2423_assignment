@@ -3,20 +3,25 @@
 //login as admin, security or visitor
 
 //visitor
-//CRU their own data
+//CR their own data
 //cannot edit blacklist data
+//cannot update their data(need to go through admin or security)
 
 //security
 //(can register itself as visitor)(keep record on the people who enter the residential area)
 //RU all visitor data(not user data)
 //can update visitor data:
 //1. blacklist,2. detail,3. visitation
+//cannot edit user collection
 //cannot edit visitor personal info
 //cannot delete user data
 
 //admin
-//RUD all data(can register itself as visitor since he is the boss)(keep record on the people who enter the residential area)
+//RUD all data
+//(can register itself as visitor since he is the boss)(keep record on the people who enter the residential area)
 //blacklist visitor
 //delete user data(including security and visitor)
 
-//one user one visitor(not sure how to coded it in)
+//one user one visitor
+//try do for doc, etc but cannot work
+//redo crows'foot notation, ERD

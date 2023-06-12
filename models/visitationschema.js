@@ -2,10 +2,6 @@ const mongoose = require('mongoose')
 
 const visitationschema = mongoose.Schema(
     {
-        name:{
-            type: String,
-            required: true
-        },
         visit_date:{
             type: String,
             required: true
@@ -21,6 +17,10 @@ const visitationschema = mongoose.Schema(
         checkout_time:{
             type: String,
             required: false
+        },
+        overtime_status:{
+            type:String,
+            required: true
         },
         visitor_id:{
             type: mongoose.Schema.Types.ObjectId,ref:'Visitor'

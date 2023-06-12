@@ -24,7 +24,7 @@ const detailschema = mongoose.Schema(
             required: true
         },
         unit_no:{
-            type: Number,
+            type: String,
             required: true
         },
         location_info:{

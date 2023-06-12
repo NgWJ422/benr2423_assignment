@@ -116,6 +116,9 @@ app.patch('/logout',async(req,res)=>{
 app.post('/register/visitor',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
   if(a.login_status=='login'){
+    if(a.visitor_id != null){
+      res.send('visitor has been created for this user(1 user 1 visitor)')
+    }else{
     try {
         const visitor = await Visitor.create(req.body)
         await Visitor.updateOne({
@@ -136,19 +139,20 @@ app.post('/register/visitor',authenticateToken,async(req,res)=>{
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
-    }
+    }}
   }else{
     res.send('please login')
   }
 })
 
+//1 visitor 1doc(dont know cannot)
 app.post('/register/visitor/doc',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
   if(a.login_status=='login'){
-    try {
-      const doc = await Document.create(req.body)
-      const b = await Visitor.findOne({ user_id : req.user.user_id })
-      await Visitor.updateOne(
+       try {
+          const doc = await Document.create(req.body)
+          const b = await Visitor.findOne({ user_id : req.user.user_id })
+          await Visitor.updateOne(
           { _id : b._id },
           {
             $set: { 'doc_type_id': doc._id }
@@ -162,7 +166,7 @@ app.post('/register/visitor/doc',authenticateToken,async(req,res)=>{
           );
         const c = await Document.findOne({_id: doc._id})
         res.status(200).json(c);
-        
+          
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
@@ -263,13 +267,12 @@ app.post('/register/visitor/additional',authenticateToken,async(req,res)=>{
   }
 })
 
-//only security or admin
 app.post('/register/visitor/blacklist',authenticateToken,async(req,res)=>{
   
   const a = await User.findOne({_id:req.user.user_id})
   if(a.login_status=='login'){
     try {
-      if(req.user.role=='security'||req.user.role=='admin'){
+      
       const blist = await Blacklist.create(req.body)
       const b = await Visitor.findOne({ user_id : req.user.user_id })
       await Visitor.updateOne(
@@ -286,9 +289,7 @@ app.post('/register/visitor/blacklist',authenticateToken,async(req,res)=>{
           );
         const c = await Blacklist.findOne({_id: blist._id})
         res.status(200).json(c);
-      }else{
-        res.send('you have no permission(not admin nor security)')
-      }
+      
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
@@ -363,25 +364,6 @@ app.post('/register/visitor/visitation',authenticateToken,async(req,res)=>{
     res.send('please login')
   }
 })
-
-app.get('/security/visitor/readall',authenticateToken,async(req,res)=>{
-  try {
-      const a = await User.findOne({_id:req.user.user_id}) 
-      if(a.login_status=='login'){
-      if(req.user.role=='admin' || req.user.role=='security'){
-      const allv = await Visitor.find()
-      res.status(200).json(allv);
-      }else{
-        res.send('you have no permission(not admin nor security)')
-      }}else{
-        res.send('please login')
-      }
-  } catch (error) {
-      console.log(error.message);
-      res.status(500).json({message: error.message})
-  }
-})
-
 
 //admin and security read data from database by inserting their own criteria
 app.post('/security/user/read',authenticateToken,async(req,res)=>{
@@ -492,6 +474,7 @@ app.post('/security/additional/read',authenticateToken,async(req,res)=>{
   }
 })
 
+//eg:only admin and security can blacklist visiter by blacklist
 app.post('/security/blacklist/read',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
   if(a.login_status=='login'){
@@ -720,7 +703,6 @@ app.delete('/admin/visitor/deleteall/:id',authenticateToken,async(req,res)=>{
     if(req.user.role=='admin' ){
       const vid = req.params.id
       await Visitor.deleteMany({_id : vid}),
-      await User.deleteMany({visitor_id: vid}),
       await Document.deleteOne({visitor_id: vid}),
       await Address.deleteMany({visitor_id: vid}),
       await Other.deleteMany({visitor_id: vid}),
