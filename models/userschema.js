@@ -28,6 +28,9 @@ const userschema = mongoose.Schema(
         },
         visitor_id:{
             type: mongoose.Schema.Types.ObjectId,ref:'Visitor'
+        },
+        login_status:{
+            type:String
         }
     },
     { versionKey: false }

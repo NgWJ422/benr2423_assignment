@@ -1,0 +1,53 @@
+
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username":"1",
+    "password":"1"
+}
+
+###
+patch http://localhost:3000/logout
+
+###
+get http://localhost:3000/showjwt
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzA5Nzg1YmU4ZmRiOWZhYTdmMDg1Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NTcxNTExfQ.Ke_6JYZ5okA0t4Hosuew1Vk7QBv8BD80MEe43YzDdUw
+###
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"10",
+    "password":"1",
+    "name":"1",
+    "gender":"1",
+    "age":"1",
+    "role":"security"
+}
+
+###
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"1",
+    "password":"1",
+    "name":"1",
+    "gender":"1",
+    "age":"1",
+    "role":"admin"
+}
+
+###
+post http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username":"1000",
+    "password":"1",
+    "name":"1",
+    "gender":"1",
+    "age":"1",
+    "role":"visitor"
+}

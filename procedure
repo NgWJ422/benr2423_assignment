@@ -1,21 +1,22 @@
+//imagine 1 machine and only 1 user can login at a time
+//user
+//login as admin, security or visitor
 
+//visitor
+//CRU their own data
+//cannot edit blacklist data
 
-//insert/create visitor/user data.
-//1. register as user
-//2. enter visitor info
-//3. enter visitor doc
-//4. enter visitor address
-//5. enter visitor other info
-//6. enter visitor detail info
-//7. enter visitor visitation info
-//8. enter visitor additional info
-//blacklist?
+//security
+//(can register itself as visitor)(keep record on the people who enter the residential area)
+//RU all visitor data(not user data)
+//can update visitor data:
+//1. blacklist,2. detail,3. visitation
+//cannot edit visitor personal info
+//cannot delete user data
 
-//read
-//1. visitor read visitor's own info(all own info,user account,visitor info,visitor doc,visitor address,visitor other info,visitor detail and visitation info)
-//2. security read all visitor info
-//3. admin read all visitor info
+//admin
+//RUD all data(can register itself as visitor since he is the boss)(keep record on the people who enter the residential area)
+//blacklist visitor
+//delete user data(including security and visitor)
 
-//update
-//1. visitor update their own info
-//2. 
+//one user one visitor(not sure how to coded it in)

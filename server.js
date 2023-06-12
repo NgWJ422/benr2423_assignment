@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const User = require('./models/userschema')
@@ -9,10 +10,12 @@ const Detail = require('./models/detailschema')
 const Document = require('./models/docschema')
 const Visitor = require('./models/visitorschema')
 const Visitation = require('./models/visitationschema')
-const { ObjectId } = require('mongodb')
+const jwt = require('jsonwebtoken')
 const app = express()
 
 app.use(express.json())
+
+
 
 mongoose.connect('mongodb+srv://jng010422:f6c2e57f6bB.@vms.ymnvlkt.mongodb.net/')
 .then(()=>{
@@ -29,365 +32,870 @@ app.get('/',(req,res)=>{
     res.send('hello node api')
 })
 
+//user registration
 app.post('/register', async(req, res) => {
     try {
-        const user = await User.create(req.body)
-        res.status(200).json(user);
-        
+        const a = await User.findOne({'username':req.body.username})
+        if(a == null){
+          const user = await User.create(req.body)
+          res.status(200).json(user)}
+        else{
+          res.send('username has been taken')
+        }        
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
     }
 })
 
-app.post('/register/visitor',async(req,res)=>{
+//user login
+app.post('/login',async(req,res)=>{
+  const {username,password}=req.body
+  try {
+    const a = await User.findOne({'login_status':'login'})
+    const b = await User.findOne({username:req.body.username})
+    if(b==null){
+      res.send('username not found')
+    }else{
+      if(a==null){
+      const c = await User.findOne({'username':req.body.username,'password':req.body.password})
+      if(c==null){
+        res.send('wrong password')
+      }else{
+        await User.updateOne({username:req.body.username},{$set:{login_status:'login'}})
+        const login_user= await User.findOne({username:req.body.username})
+        access_token=jwt.sign({user_id:login_user._id,role:login_user.role},process.env.Access_token_secret)
+        console.log('login successful')
+        res.json({accesstoken: access_token})
+      }
+      }else{
+      res.send('someone else has login')
+      }}
+  } catch (error) {
+    console.log(error.message);
+        res.status(500).json({message: error.message})
+  }
+})
+
+//middleware
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization']
+  const token = authHeader && authHeader.split(' ')[1]
+  if (token == null) return res.sendStatus(401)
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, login_user) => {
+    console.log(err)
+    if (err) return res.sendStatus(403)
+    req.user = login_user
+    next()
+  })
+}
+
+//test jwt
+app.get('/showjwt',authenticateToken,(req,res)=>{
+  res.send(req.user)
+})
+
+//user logout(cannot interact with api after log out)
+app.patch('/logout',async(req,res)=>{
+  try {
+    const a = await User.findOne({login_status:'login'})
+    if(a==null){
+      res.send('nobody has login')
+    }else{
+    await User.updateOne({_id: a._id},{$set: {login_status:'logout'}})
+    res.send('logout successful')
+    }
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({message: error.message})
+  }
+})
+
+//admin security or visitor insert visitor info(1 user account only 1 visitor)
+app.post('/register/visitor',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
     try {
         const visitor = await Visitor.create(req.body)
+        await Visitor.updateOne({
+          _id: visitor._id
+        },
+        {
+          $set: { 'user_id': req.user.user_id }
+        })
         await User.updateOne(
-            { _id : visitor.user_id },
+            { _id : req.user.user_id },
             {
               $set: { 'visitor_id': visitor._id }
             }
           );
-        res.status(200).json(visitor);
+        const v2 = await Visitor.findOne({_id: visitor._id})
+        res.status(200).json(v2);
         
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
     }
+  }else{
+    res.send('please login')
+  }
 })
 
-app.post('/register/visitor/doc',async(req,res)=>{
+app.post('/register/visitor/doc',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
     try {
-        const doc = await Document.create(req.body)
-        await Visitor.updateOne(
-            { _id : doc.visitor_id },
+      const doc = await Document.create(req.body)
+      const b = await Visitor.findOne({ user_id : req.user.user_id })
+      await Visitor.updateOne(
+          { _id : b._id },
+          {
+            $set: { 'doc_type_id': doc._id }
+          }
+        );
+        await Document.updateOne(
+            { _id : doc._id },
             {
-              $set: { 'doc_type_id': doc._id }
+              $set: { 'visitor_id': b._id }
             }
           );
-        res.status(200).json(doc);
+        const c = await Document.findOne({_id: doc._id})
+        res.status(200).json(c);
         
-
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
     }
+  }else{
+    res.send('please login')
+  }
 })
 
-app.post('/register/visitor/address',async(req,res)=>{
+
+app.post('/register/visitor/address',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
     try {
-        const address = await Address.create(req.body)
-        await Visitor.updateOne(
-            { _id : address.visitor_id },
+      const add = await Address.create(req.body)
+      const b = await Visitor.findOne({ user_id : req.user.user_id })
+      await Visitor.updateOne(
+          { _id : b._id },
+          {
+            $set: { 'address_id': add._id }
+          }
+        );
+        await Address.updateOne(
+            { _id : add._id },
             {
-              $set: { 'address_id': address._id }
+              $set: { 'visitor_id': b._id }
             }
           );
-        res.status(200).json(address);
+        const c = await Address.findOne({_id: add._id})
+        res.status(200).json(c);
         
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
     }
+  }else{
+    res.send('please login')
+  }
 })
 
-app.post('/register/visitor/other', async(req, res) => {
+app.post('/register/visitor/other',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
     try {
-        const other = await Other.create(req.body)
-        await Visitor.updateOne(
-            { _id : other.visitor_id },
+      const oth = await Other.create(req.body)
+      const b = await Visitor.findOne({ user_id : req.user.user_id })
+      await Visitor.updateOne(
+          { _id : b._id },
+          {
+            $set: { 'other_id': oth._id }
+          }
+        );
+        await Other.updateOne(
+            { _id : oth._id },
             {
-              $set: { 'other_id': other._id }
+              $set: { 'visitor_id': b._id }
             }
           );
-        res.status(200).json(other);
+        const c = await Other.findOne({_id: oth._id})
+        res.status(200).json(c);
         
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
     }
+  }else{
+    res.send('please login')
+  }
 })
 
-app.post('/register/visitor/detail',async(req,res)=>{
+app.post('/register/visitor/additional',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
     try {
-        const detail = await Detail.create(req.body)
-        await Visitor.updateOne(
-            { _id : detail.visitor_id },
+      const add = await Additional.create(req.body)
+      const b = await Visitor.findOne({ user_id : req.user.user_id })
+      await Visitor.updateOne(
+          { _id : b._id },
+          {
+            $set: { 'additional_id': add._id }
+          }
+        );
+        await Additional.updateOne(
+            { _id : add._id },
             {
+              $set: { 'visitor_id': b._id }
+            }
+          );
+        const c = await Additional.findOne({_id: add._id})
+        res.status(200).json(c);
+        
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({message: error.message})
+    }
+  }else{
+    res.send('please login')
+  }
+})
+
+//only security or admin
+app.post('/register/visitor/blacklist',authenticateToken,async(req,res)=>{
+  
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+    try {
+      if(req.user.role=='security'||req.user.role=='admin'){
+      const blist = await Blacklist.create(req.body)
+      const b = await Visitor.findOne({ user_id : req.user.user_id })
+      await Visitor.updateOne(
+          { _id : b._id },
+          {
+            $set: { 'blacklist_id': blist._id }
+          }
+        );
+        await Blacklist.updateOne(
+            { _id : blist._id },
+            {
+              $set: { 'visitor_id': b._id }
+            }
+          );
+        const c = await Blacklist.findOne({_id: blist._id})
+        res.status(200).json(c);
+      }else{
+        res.send('you have no permission(not admin nor security)')
+      }
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({message: error.message})
+    }
+  }else{
+    res.send('please login')
+  }
+})
+
+app.post('/register/visitor/detail',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+    try {
+      const detail = await Detail.create(req.body)
+      const b = await Visitor.findOne({ user_id : req.user.user_id })
+      await Visitor.updateOne(
+          { _id : b._id },
+          {
               $push: { 'detail_id': detail._id }
+          }
+        );
+        await Detail.updateOne(
+            { _id : detail._id },
+            {
+              $set: { 'visitor_id': b._id }
             }
           );
-        res.status(200).json(detail);
+        const c = await Detail.findOne({_id: detail._id})
+        res.status(200).json(c);
         
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
     }
+  }else{
+    res.send('please login')
+  }
 })
 
-app.post('/register/visitor/visitation',async(req,res)=>{
+app.post('/register/visitor/visitation',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
     try {
-        const visitation = await Visitation.create(req.body)
-        await Visitor.updateOne(
-            { _id : visitation.visitor_id },
-            {
+      const visitation = await Visitation.create(req.body)
+      const b = await Visitor.findOne({ user_id : req.user.user_id })
+      await Visitor.updateOne(
+          { _id : b._id },
+          {
               $push: { 'visitation_id': visitation._id }
+          }
+        );
+        await Visitation.updateOne(
+            { _id : visitation._id },
+            {
+              $set: { 'visitor_id': b._id }
             }
           );
-        await Detail.updateOne(
-            { _id : visitation.detail_id },
+          await Detail.updateOne(
+            { _id : req.body.detail_id },
             {
               $set: { 'visitation_id': visitation._id }
             }
           );
-        res.status(200).json(visitation);
+        const c = await Visitation.findOne({_id: visitation._id})
+        res.status(200).json(c);
         
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
     }
+  }else{
+    res.send('please login')
+  }
 })
 
-app.post('/register/visitor/additional',async(req,res)=>{
-    try {
-        const additional = await Additional.create(req.body)
-        await Visitor.updateOne(
-            { _id : additional.visitor_id },
-            {
-              $set: { 'additional_id': additional._id }
-            }
-          );
-        res.status(200).json(additional);
-        
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message})
-    }
-})
-
-app.post('/register/visitor/blacklist',async(req,res)=>{
-    try {
-        const blacklist = await Blacklist.create(req.body)
-        await Visitor.updateOne(
-            { _id : blacklist.visitor_id },
-            {
-              $set: { 'blacklist_id': blacklist._id }
-            }
-          );
-        res.status(200).json(blacklist);
-        
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message})
-    }
-})
-
-app.get('/admin/visitor/readall',async(req,res)=>{
+app.get('/security/visitor/readall',authenticateToken,async(req,res)=>{
   try {
+      const a = await User.findOne({_id:req.user.user_id}) 
+      if(a.login_status=='login'){
+      if(req.user.role=='admin' || req.user.role=='security'){
       const allv = await Visitor.find()
       res.status(200).json(allv);
-      
+      }else{
+        res.send('you have no permission(not admin nor security)')
+      }}else{
+        res.send('please login')
+      }
   } catch (error) {
       console.log(error.message);
       res.status(500).json({message: error.message})
   }
 })
 
-app.get('/user/read/:id',async(req,res)=>{
+
+//admin and security read data from database by inserting their own criteria
+app.post('/security/user/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await User.findOne({
-        _id : req.params.id
-      })
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv = await User.find(req.body)
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.get('/visitor/read/:id',async(req,res)=>{
+app.post('/security/visitor/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await Visitor.findOne({
-        _id : req.params.id
-      })
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv = await Visitor.find(req.body)
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.get('/document/read/:docid',async(req,res)=>{
+app.post('/security/doc/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await Document.findOne({
-        _id : req.params.docid
-      })
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv = await Document.find(req.body)
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.get('/address/read/:addid',async(req,res)=>{
+app.post('/security/address/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await Address.findOne({
-        _id : req.params.addid
-      })
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv = await Address.find(req.body)
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.get('/other/read/:othid',async(req,res)=>{
+app.post('/security/other/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await Other.findOne({
-        _id : req.params.othid
-      })
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv = await Other.find(req.body)
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.get('/additional/read/:addiid',async(req,res)=>{
+app.post('/security/additional/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await Additional.findOne({
-        _id : req.params.addiid
-      })
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv = await Additional.find(req.body)
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.get('/blacklist/read/:blackid',async(req,res)=>{
+app.post('/security/blacklist/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await Blacklist.findOne({
-        _id : req.params.blackid
-      })
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv = await Blacklist.find(req.body)
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.get('/detail/read/:deid',async(req,res)=>{
+app.post('/security/detail/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await Detail.findOne({
-        _id : req.params.deid
-      })
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv = await Detail.find(req.body)
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.get('/visitation/read/:viid',async(req,res)=>{
+app.post('/security/visitation/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await Visitation.findOne({
-        _id : req.params.viid
-      })
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv = await Visitation.find(req.body)
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
 
-app.get('/visitation/read/:viid',async(req,res)=>{
+//admin and security need to specified which doc they want to update in the url
+//the following can only be edited by admin
+app.patch('/security/user/update/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-      const allv = await Visitation.findOne({
-        _id : req.params.viid
-      })
+    if(req.user.role=='admin' ){
+      const allv= await User.updateOne({_id: req.params.id},{$set: req.body})
       res.status(200).json(allv);
-      
-  } catch (error) {
+    }else{
+      res.send('you have no permission(not admin )')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.get('/visitor/readall/:id',async(req,res)=>{
+app.patch('/security/visitor/update/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-    const allv = [
-      await Visitor.findOne({_id : req.params.id}),
-      await User.findOne({visitor_id: req.params.id}),
-      await Document.findOne({visitor_id: req.params.id}),
-      await Address.findOne({visitor_id: req.params.id}),
-      await Other.findOne({visitor_id: req.params.id}),
-      await Additional.findOne({visitor_id: req.params.id}),
-      await Blacklist.findOne({visitor_id: req.params.id}),
-      detail=[await Detail.find({visitor_id: req.params.id})],
-      visitation=[await Visitation.find({visitor_id: req.params.id})]
-    ]
-    res.status(200).json(allv);
-  } catch (error) {
+    if(req.user.role=='admin' ){
+      const allv= await Visitor.updateOne({_id: req.params.id},{$set: req.body})
+      res.status(200).json(allv);
+    }else{
+      res.send('you have no permission(not admin)')
+    }
+    } catch (error) {
       console.log(error.message);
-      res.status(500).json({message: error.message})
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.patch('/visitor/update/:id',async(req,res)=>{
+app.patch('/security/doc/update/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-    const updates = req.body
-    const allv= await Visitor.updateOne({_id: req.params.id},{$set: updates})
-    res.status(200).json(allv);
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).json({message: error.message})
+    if(req.user.role=='admin' ){
+      const allv= await Document.updateOne({_id: req.params.id},{$set: req.body})
+      res.status(200).json(allv);
+    }else{
+      res.send('you have no permission(not admin)')
+    }
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-
-app.patch('/user/update/:id',async(req,res)=>{
+app.patch('/security/address/update/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-    const updates = req.body
-    const allv= await User.updateOne({_id: req.params.id},{$set: updates})
-    res.status(200).json(allv);
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).json({message: error.message})
+    if(req.user.role=='admin'){
+      const allv= await Address.updateOne({_id: req.params.id},{$set: req.body})
+      res.status(200).json(allv);
+    }else{
+      res.send('you have no permission(not admin)')
+    }
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })
 
-app.delete('/visitor/deteleall/:id',async(req,res)=>{
+app.patch('/security/other/update/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
   try {
-    const vid = req.params.id
-    await Visitor.deleteOne({_id : vid}),
-    await User.deleteOne({visitor_id: vid}),
-    await Document.deleteOne({visitor_id: vid}),
-    await Address.deleteOne({visitor_id: vid}),
-    await Other.deleteOne({visitor_id: vid}),
-    await Additional.deleteOne({visitor_id: vid}),
-    await Blacklist.deleteOne({visitor_id: vid}),
-    await Detail.deleteMany({visitor_id: vid}),
-    await Visitation.deleteMany({visitor_id: vid})
-    .then(result=>{
+    if(req.user.role=='admin'){
+      const allv= await Other.updateOne({_id: req.params.id},{$set: req.body})
+      res.status(200).json(allv);
+    }else{
+      res.send('you have no permission(not admin)')
+    }
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.patch('/security/additional/update/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+    if(req.user.role=='admin'){
+      const allv= await Additional.updateOne({_id: req.params.id},{$set: req.body})
+      res.status(200).json(allv);
+    }else{
+      res.send('you have no permission(not admin)')
+    }
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+//the following can be updated by admin or security
+app.patch('/security/blacklist/update/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv= await Blacklist.updateOne({_id: req.params.id},{$set: req.body})
+      res.status(200).json(allv);
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.patch('/security/detail/update/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv= await Detail.updateOne({_id: req.params.id},{$set: req.body})
+      res.status(200).json(allv);
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.patch('/security/visitation/update/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+    if(req.user.role=='admin' || req.user.role=='security'){
+      const allv= await Visitation.updateOne({_id: req.params.id},{$set: req.body})
+      res.status(200).json(allv);
+    }else{
+      res.send('you have no permission(not admin nor security)')
+    }
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+//admin wants to delete a visitor information
+app.delete('/admin/visitor/deleteall/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+    if(req.user.role=='admin' ){
+      const vid = req.params.id
+      await Visitor.deleteMany({_id : vid}),
+      await User.deleteMany({visitor_id: vid}),
+      await Document.deleteOne({visitor_id: vid}),
+      await Address.deleteMany({visitor_id: vid}),
+      await Other.deleteMany({visitor_id: vid}),
+      await Additional.deleteMany({visitor_id: vid}),
+      await Blacklist.deleteMany({visitor_id: vid}),
+      await Detail.deleteMany({visitor_id: vid}),
+      await Visitation.deleteMany({visitor_id: vid})
+      .then(result=>{
       res.status(200).json(result)
-    })
-    .catch(error=>{
-      res.status(500).json({message: error.message})
-    })
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).json({message: error.message})
+       })
+    }else{
+      res.send('you have no permission(not admin )')
+    }
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.delete('/admin/user/delete/:id',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+    if(req.user.role=='admin' ){
+      const vid = req.params.id
+      await User.deleteMany({_id : vid})
+      .then(result=>{
+      res.status(200).json(result)
+       })
+    }else{
+      res.send('you have no permission(not admin )')
+    }
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+//the following are read api for visitor or anyone to read their own visitor record
+
+app.get('/user/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+      const allv = await User.find({visitor_id:a.visitor_id})
+      res.status(200).json(allv);
+   
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.get('/visitor/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+      const allv = await Visitor.find({_id:a.visitor_id})
+      res.status(200).json(allv);
+    
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.get('/doc/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+      const allv = await Document.find({visitor_id:a.visitor_id})
+      res.status(200).json(allv);
+   
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.get('/address/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+      const allv = await Address.find({visitor_id:a.visitor_id})
+      res.status(200).json(allv);
+    
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.get('/other/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+      const allv = await Other.find({visitor_id:a.visitor_id})
+      res.status(200).json(allv);
+    
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.get('/additional/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+      const allv = await Additional.find({visitor_id:a.visitor_id})
+      res.status(200).json(allv);
+    
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.get('/blacklist/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+      const allv = await Blacklist.find({visitor_id:a.visitor_id})
+      res.status(200).json(allv);
+    
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.get('/detail/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+      const allv = await Detail.find({visitor_id:a.visitor_id})
+      res.status(200).json(allv);
+    
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
+  }
+})
+
+app.get('/visitation/read',authenticateToken,async(req,res)=>{
+  const a = await User.findOne({_id:req.user.user_id})
+  if(a.login_status=='login'){
+  try {
+      const allv = await Visitation.find({visitor_id:a.visitor_id})
+      res.status(200).json(allv);
+    
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({message: error.message})}
+  }else{
+    res.send('please login')
   }
 })

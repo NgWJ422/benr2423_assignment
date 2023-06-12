@@ -26,8 +26,9 @@ const visitationschema = mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,ref:'Visitor'
         },
         detail_id:{
-            type: mongoose.Schema.Types.ObjectId, ref:'Detail'
-        },
+            type: mongoose.Schema.Types.ObjectId, ref:'Detail',
+            required: true
+        }
     },
     { versionKey: false }
 )
