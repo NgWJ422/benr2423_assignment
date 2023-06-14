@@ -2,7 +2,7 @@
 //test to see what is encoded in jwt
 ###
 get http://localhost:3000/showjwt
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4NzlhY2VjYTg5OGNmYzQ2ODgwMzIxIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MDg2MDZ9.jL6Tk01lECuz49CtSxlwrg_lDpz_DQd1iQvpOs2iIx8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
 
 ###
 post http://localhost:3000/register

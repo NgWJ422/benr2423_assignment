@@ -121,11 +121,13 @@ app.post('/register/visitor',authenticateToken,async(req,res)=>{
     }else{
     try {
         const visitor = await Visitor.create(req.body)
+        const z= await Blacklist.create({blacklist_status:"no",visitor_id: visitor._id})
         await Visitor.updateOne({
           _id: visitor._id
         },
         {
-          $set: { 'user_id': req.user.user_id }
+          $set: { 'user_id': req.user.user_id,
+                  'blacklist_id': z._id }
         })
         await User.updateOne(
             { _id : req.user.user_id },
@@ -135,6 +137,7 @@ app.post('/register/visitor',authenticateToken,async(req,res)=>{
           );
         const v2 = await Visitor.findOne({_id: visitor._id})
         res.status(200).json(v2);
+        console.log(z)
         
     } catch (error) {
         console.log(error.message);
@@ -267,37 +270,7 @@ app.post('/register/visitor/additional',authenticateToken,async(req,res)=>{
   }
 })
 
-app.post('/register/visitor/blacklist',authenticateToken,async(req,res)=>{
-  
-  const a = await User.findOne({_id:req.user.user_id})
-  if(a.login_status=='login'){
-    try {
-      
-      const blist = await Blacklist.create(req.body)
-      const b = await Visitor.findOne({ user_id : req.user.user_id })
-      await Visitor.updateOne(
-          { _id : b._id },
-          {
-            $set: { 'blacklist_id': blist._id }
-          }
-        );
-        await Blacklist.updateOne(
-            { _id : blist._id },
-            {
-              $set: { 'visitor_id': b._id }
-            }
-          );
-        const c = await Blacklist.findOne({_id: blist._id})
-        res.status(200).json(c);
-      
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message})
-    }
-  }else{
-    res.send('please login')
-  }
-})
+
 
 app.post('/register/visitor/detail',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
