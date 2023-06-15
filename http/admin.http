@@ -1,7 +1,7 @@
 ###
 //register as visitor
 post http://localhost:3000/register/visitor
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4OTExZGM5MTU0Mjc5MjY0NjhhMjhmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NzA0NjA2fQ.Ho9ZtsmJTjl5qlVt2Yi9D4pK5asoG92_4TEUn6z-wXA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc1YmU4MjdiYWYyMmNjNGFlMGQ4Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxMjQ5fQ.FXjInQF1xoG-EZAkL7HxPMjuxkYEBOyY0lb3Fc6ckxQ
 Content-Type: application/json
 
 {
@@ -19,7 +19,7 @@ Content-Type: application/json
 ###
 //doc expiry date means need to update doc before the date comes
 post http://localhost:3000/register/visitor/doc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc1YmU4MjdiYWYyMmNjNGFlMGQ4Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxMjQ5fQ.FXjInQF1xoG-EZAkL7HxPMjuxkYEBOyY0lb3Fc6ckxQ
 Content-Type: application/json
 
 {
@@ -123,7 +123,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/user/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQyOTN9.9mWKlV6nr6uESbM0upgNE0zYR4G2sRMgrCZ85T3g6hY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc1YmU4MjdiYWYyMmNjNGFlMGQ4Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxMjQ5fQ.FXjInQF1xoG-EZAkL7HxPMjuxkYEBOyY0lb3Fc6ckxQ
 
 {
     "username":"NG"
@@ -289,13 +289,13 @@ Content-Type: application/json
 //admin wanst to delete a visitor
 //enter visitor's id in url
 ###
-delete http://localhost:3000/admin/visitor/deleteall/6487f98c928a56a3b437c716
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+delete http://localhost:3000/admin/visitor/deleteall/648b7633827baf22cc4ae0fb
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYyNTI1fQ.mqfuQ7IJqgoJ6Q7NRIDNULOtscJ6ld3s9u8vdcfchew
 
 //admin wants to delete a user account
 ###
-delete http://localhost:3000/admin/user/delete/6487f8a4928a56a3b437c6f7
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2ZlZmJmYWIwODE1ZjM3ZmExMzc4Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NjM0MjQxfQ.bae-pG3LlUOt5P-2-nYW8DGRPoAOJkc-ZZjk1ITTRvE
+delete http://localhost:3000/admin/user/delete/648b789fe112e6e084b462ef
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYyNTI1fQ.mqfuQ7IJqgoJ6Q7NRIDNULOtscJ6ld3s9u8vdcfchew
 
 
 

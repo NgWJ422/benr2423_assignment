@@ -148,7 +148,7 @@ app.post('/register/visitor',authenticateToken,async(req,res)=>{
   }
 })
 
-//1 visitor 1doc(dont know cannot)
+
 app.post('/register/visitor/doc',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
   if(a.login_status=='login'){
@@ -447,7 +447,6 @@ app.post('/security/additional/read',authenticateToken,async(req,res)=>{
   }
 })
 
-//eg:only admin and security can blacklist visiter by blacklist
 app.post('/security/blacklist/read',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
   if(a.login_status=='login'){
@@ -614,6 +613,7 @@ app.patch('/security/additional/update/:id',authenticateToken,async(req,res)=>{
 })
 
 //the following can be updated by admin or security
+//eg:only admin and security can blacklist visiter by blacklist
 app.patch('/security/blacklist/update/:id',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
   if(a.login_status=='login'){
@@ -675,6 +675,7 @@ app.delete('/admin/visitor/deleteall/:id',authenticateToken,async(req,res)=>{
   try {
     if(req.user.role=='admin' ){
       const vid = req.params.id
+      await User.updateOne({_id:req.user.user_id},{$unset: { visitor_id: "" }})
       await Visitor.deleteMany({_id : vid}),
       await Document.deleteOne({visitor_id: vid}),
       await Address.deleteMany({visitor_id: vid}),
@@ -697,22 +698,27 @@ app.delete('/admin/visitor/deleteall/:id',authenticateToken,async(req,res)=>{
   }
 })
 
+//admin can only delete user account if it's vistor document is deleted
 app.delete('/admin/user/delete/:id',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
+  
   if(a.login_status=='login'){
-  try {
-    if(req.user.role=='admin' ){
-      const vid = req.params.id
-      await User.deleteMany({_id : vid})
-      .then(result=>{
-      res.status(200).json(result)
-       })
-    }else{
-      res.send('you have no permission(not admin )')
-    }
-    } catch (error) {
-      console.log(error.message);
-      res.status(500).json({message: error.message})}
+        try {
+          if(req.user.role=='admin' ){
+            if(a.visitor_id != null){
+              res.send('please delete visitor data first')
+          }else{
+            const vid = req.params.id
+            await User.deleteMany({_id : vid})
+            .then(result=>{
+            res.status(200).json(result)
+            })}
+          }else{
+            res.send('you have no permission(not admin )')
+          }
+          } catch (error) {
+            console.log(error.message);
+            res.status(500).json({message: error.message})}
   }else{
     res.send('please login')
   }
