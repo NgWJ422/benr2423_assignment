@@ -124,6 +124,7 @@ Content-Type: application/json
 ###
 post http://localhost:3000/security/user/read
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc1YmU4MjdiYWYyMmNjNGFlMGQ4Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxMjQ5fQ.FXjInQF1xoG-EZAkL7HxPMjuxkYEBOyY0lb3Fc6ckxQ
+Content-Type: application/json
 
 {
     "username":"NG"
@@ -150,6 +151,7 @@ Content-Type: application/json
 ###
 post http://localhost:3000/security/address/read
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Content-Type: application/json
 
 {
     "town":"taman 1"
@@ -185,6 +187,7 @@ Content-Type: application/json
 ###
 post http://localhost:3000/security/detail/read
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Content-Type: application/json
 
 {
     "host_info":"nothing"
