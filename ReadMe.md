@@ -23,7 +23,7 @@ imagine 1 machine and only 1 user can login at a time
 //delete user data(including security and visitor),must delete visitor data first before user account can be deleted
 
 //one user one visitor
-//try do for doc, etc but cannot work
+//multiple user can login at a time
 
 
 //redo crows'foot notation, ERD

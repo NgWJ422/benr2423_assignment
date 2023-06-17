@@ -52,12 +52,13 @@ app.post('/register', async(req, res) => {
 app.post('/login',async(req,res)=>{
   const {username,password}=req.body
   try {
-    const a = await User.findOne({'login_status':'login'})
     const b = await User.findOne({username:req.body.username})
     if(b==null){
       res.send('username not found')
     }else{
-      if(a==null){
+      if(b.login_status=="login"){
+        res.send("user has login")
+      }else{
       const c = await User.findOne({'username':req.body.username,'password':req.body.password})
       if(c==null){
         res.send('wrong password')
@@ -68,10 +69,9 @@ app.post('/login',async(req,res)=>{
         console.log('login successful')
         res.json({accesstoken: access_token})
       }
-      }else{
-      res.send('someone else has login')
+      }
       }}
-  } catch (error) {
+   catch (error) {
     console.log(error.message);
         res.status(500).json({message: error.message})
   }
@@ -99,13 +99,15 @@ app.get('/showjwt',authenticateToken,(req,res)=>{
 //user logout(cannot interact with api after log out)
 app.patch('/logout',async(req,res)=>{
   try {
-    const a = await User.findOne({login_status:'login'})
-    if(a==null){
-      res.send('nobody has login')
+    const a = await User.findOne({username:req.body.username})
+    if(a.login_status!="login"){
+      res.send("user has logout")
     }else{
-    await User.updateOne({_id: a._id},{$set: {login_status:'logout'}})
-    res.send('logout successful')
+      await User.updateOne({username:req.body.username},{$set:{login_status:"logout"}})
+      const z = await User.findOne({username:req.body.username})
+      res.send("successfully logout")
     }
+    
   } catch (error) {
     console.log(error.message);
     res.status(500).json({message: error.message})

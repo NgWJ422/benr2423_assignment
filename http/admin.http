@@ -1,7 +1,7 @@
 ###
 //register as visitor
 post http://localhost:3000/register/visitor
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc1YmU4MjdiYWYyMmNjNGFlMGQ4Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxMjQ5fQ.FXjInQF1xoG-EZAkL7HxPMjuxkYEBOyY0lb3Fc6ckxQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -19,7 +19,7 @@ Content-Type: application/json
 ###
 //doc expiry date means need to update doc before the date comes
 post http://localhost:3000/register/visitor/doc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc1YmU4MjdiYWYyMmNjNGFlMGQ4Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxMjQ5fQ.FXjInQF1xoG-EZAkL7HxPMjuxkYEBOyY0lb3Fc6ckxQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -31,7 +31,7 @@ Content-Type: application/json
 ###
 
 post http://localhost:3000/register/visitor/address
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -44,7 +44,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/register/visitor/other
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -57,7 +57,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/register/visitor/additional
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -77,7 +77,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/register/visitor/detail
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -95,7 +95,7 @@ Content-Type: application/json
 ###
 
 post http://localhost:3000/register/visitor/visitation
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2ZlZmJmYWIwODE1ZjM3ZmExMzc4Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NjM0MzcxfQ.CGxtVAHsjucWvqq8xavaM078evm7ZKJUH0nFEZ06VrA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -104,7 +104,7 @@ Content-Type: application/json
     "visit_expiry_time":"no limit",
     "checkout_time":"12:00",
     "overtime_status":"not overtime",
-    "detail_id":"6487fa4c928a56a3b437c73f"
+    "detail_id":"648bbe47b5a82ab58731e22c"
 
 }
 
@@ -113,7 +113,7 @@ Content-Type: application/json
 //if admin or security wants to read all doc from a collection,just put an empty json file
 ###
 post http://localhost:3000/security/user/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -123,16 +123,16 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/user/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc1YmU4MjdiYWYyMmNjNGFlMGQ4Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYxMjQ5fQ.FXjInQF1xoG-EZAkL7HxPMjuxkYEBOyY0lb3Fc6ckxQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
-    "username":"NG"
+    "age":"22"
 }
 
 ###
 post http://localhost:3000/security/visitor/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -141,7 +141,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/doc/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -150,7 +150,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/address/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -159,7 +159,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/other/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -168,7 +168,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/additional/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -177,7 +177,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/blacklist/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4OTExZGM5MTU0Mjc5MjY0NjhhMjhmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NzA0NjA2fQ.Ho9ZtsmJTjl5qlVt2Yi9D4pK5asoG92_4TEUn6z-wXA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -186,7 +186,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/detail/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -195,7 +195,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/security/visitation/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -205,8 +205,8 @@ Content-Type: application/json
 
 //update(id of specific document is required)
 ###
-patch http://localhost:3000/security/visitor/update/6487f98c928a56a3b437c716
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2ZlZmJmYWIwODE1ZjM3ZmExMzc4Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NjM0MzcxfQ.CGxtVAHsjucWvqq8xavaM078evm7ZKJUH0nFEZ06VrA
+patch http://localhost:3000/security/visitor/update/648bbd2ed68d20872668ee69
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -214,8 +214,8 @@ Content-Type: application/json
 }
 
 ###
-patch http://localhost:3000/security/user/update/6487f8a9928a56a3b437c6fd
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2ZlZmJmYWIwODE1ZjM3ZmExMzc4Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg2NjM0MjQxfQ.bae-pG3LlUOt5P-2-nYW8DGRPoAOJkc-ZZjk1ITTRvE
+patch http://localhost:3000/security/user/update/648d29c650bf1de86b132dc5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -224,7 +224,7 @@ Content-Type: application/json
 
 ###
 patch http://localhost:3000/security/doc/update/6487f9a3928a56a3b437c71c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -233,7 +233,7 @@ Content-Type: application/json
 
 ###
 patch http://localhost:3000/security/address/update/6487f9d1928a56a3b437c723
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -242,7 +242,7 @@ Content-Type: application/json
 
 ###
 patch http://localhost:3000/security/other/update/6487fa08928a56a3b437c72a
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -251,7 +251,7 @@ Content-Type: application/json
 
 ###
 patch http://localhost:3000/security/additional/update/6487fa11928a56a3b437c731
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -262,7 +262,7 @@ Content-Type: application/json
 //the following can be used by both admin and security
 ###
 patch http://localhost:3000/security/blacklist/update/648911ed915427926468a299
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4OTExZGM5MTU0Mjc5MjY0NjhhMjhmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NzA0NjA2fQ.Ho9ZtsmJTjl5qlVt2Yi9D4pK5asoG92_4TEUn6z-wXA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -273,7 +273,7 @@ Content-Type: application/json
 
 ###
 patch http://localhost:3000/security/detail/update/6487fa4c928a56a3b437c73f
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -281,8 +281,8 @@ Content-Type: application/json
 }
 
 ###
-patch http://localhost:3000/security/visitation/update/6487fa8c928a56a3b437c746
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YWE5MjhhNTZhM2I0MzdjNzAwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NjMyNjUxfQ.Z6-ygCNQUM1uH6KgrEAhIFLAh8wiWVSfW8xL9wFr5F0
+patch http://localhost:3000/security/visitation/update/648bbe74b5a82ab58731e233
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 Content-Type: application/json
 
 {
@@ -292,13 +292,13 @@ Content-Type: application/json
 //admin wanst to delete a visitor
 //enter visitor's id in url
 ###
-delete http://localhost:3000/admin/visitor/deleteall/648b7633827baf22cc4ae0fb
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYyNTI1fQ.mqfuQ7IJqgoJ6Q7NRIDNULOtscJ6ld3s9u8vdcfchew
+delete http://localhost:3000/admin/visitor/deleteall/648d2ab023f30a845834e30b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 
 //admin wants to delete a user account
 ###
-delete http://localhost:3000/admin/user/delete/648b789fe112e6e084b462ef
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4Yjc4OWZlMTEyZTZlMDg0YjQ2MmVmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODYyNTI1fQ.mqfuQ7IJqgoJ6Q7NRIDNULOtscJ6ld3s9u8vdcfchew
+delete http://localhost:3000/admin/user/delete/648d29c450bf1de86b132dc2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4ZDI5YzQ1MGJmMWRlODZiMTMyZGMyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2OTczMDg3fQ.JSKenw7HXJZH6puYnUns09FcGiM3KWXtX7N3xKQyGWY
 
 
 

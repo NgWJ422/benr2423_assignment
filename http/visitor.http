@@ -1,7 +1,7 @@
 ###
 //register as visitor
 post http://localhost:3000/register/visitor
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
 Content-Type: application/json
 
 {
@@ -19,7 +19,7 @@ Content-Type: application/json
 ###
 
 post http://localhost:3000/register/visitor/doc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
 Content-Type: application/json
 
 {
@@ -30,7 +30,7 @@ Content-Type: application/json
 ###
 
 post http://localhost:3000/register/visitor/address
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
 Content-Type: application/json
 
 {
@@ -109,11 +109,11 @@ Content-Type: application/json
 ###
 //the following are read api for ANYONE to read their own visitor record
 get http://localhost:3000/user/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
 
 ###
 get http://localhost:3000/visitor/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
 
 ###
 get http://localhost:3000/doc/read

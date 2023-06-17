@@ -108,7 +108,7 @@ Content-Type: application/json
 //if admin or security wants to read all doc from a collection,just put an empty json file
 ###
 post http://localhost:3000/security/user/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
 Content-Type: application/json
 
 {
