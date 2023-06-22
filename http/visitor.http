@@ -1,11 +1,11 @@
 ###
 //register as visitor
 post http://localhost:3000/register/visitor
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
 Content-Type: application/json
 
 {
-    "name":"Alili",
+    "name":"Chan",
     "gender":"Male",
     "age":"22",
     "date_of_birth":"8 May 2000",
@@ -19,7 +19,7 @@ Content-Type: application/json
 ###
 
 post http://localhost:3000/register/visitor/doc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
 Content-Type: application/json
 
 {
@@ -30,7 +30,7 @@ Content-Type: application/json
 ###
 
 post http://localhost:3000/register/visitor/address
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
 Content-Type: application/json
 
 {
@@ -43,7 +43,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/register/visitor/other
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
 Content-Type: application/json
 
 {
@@ -56,7 +56,7 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/register/visitor/additional
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
 Content-Type: application/json
 
 {
@@ -76,16 +76,16 @@ Content-Type: application/json
 
 ###
 post http://localhost:3000/register/visitor/detail
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
 Content-Type: application/json
 
 {
-    "no_of_visitor":"4",
+    "no_of_visitor":"8",
     "purpose_of_visit":"see family",
-    "To_meet_host":"Yang",
+    "To_meet_host":"TTT",
     "host_info":"family",
     "location_department":"A-2",
-    "unit_no":"222",
+    "unit_no":"333",
     "location_info":"inside tall appartment",
     "permit_no":"003",
     "remarks":"with Chan"
@@ -94,7 +94,7 @@ Content-Type: application/json
 ###
 
 post http://localhost:3000/register/visitor/visitation
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
 Content-Type: application/json
 
 {
@@ -102,43 +102,8 @@ Content-Type: application/json
     "checkin_time":"10:30",
     "visit_expiry_time":"13:30",
     "overtime_status":"not overtime",
-    "detail_id":"6486fc81db3985a850f7419e"
+    "detail_id":"6494d09e7429415b549a211e"
 
 }
 
-###
-//the following are read api for ANYONE to read their own visitor record
-get http://localhost:3000/user/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
-
-###
-get http://localhost:3000/visitor/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMmVkNjhkMjA4NzI2NjhlZTY5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY4ODM0Njl9.nsVU7FmVoqASpjw3GdvoyZSLNFoGxl3APysMTo0PaB4
-
-###
-get http://localhost:3000/doc/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
-
-###
-get http://localhost:3000/address/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
-
-###
-get http://localhost:3000/other/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
-
-###
-get http://localhost:3000/additional/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
-
-###
-get http://localhost:3000/blacklist/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4OTExZGM5MTU0Mjc5MjY0NjhhMjhmIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2NzA0NjA2fQ.Ho9ZtsmJTjl5qlVt2Yi9D4pK5asoG92_4TEUn6z-wXA
-###
-get http://localhost:3000/detail/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
-
-###
-get http://localhost:3000/visitation/read
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4N2Y4YTk5MjhhNTZhM2I0MzdjNmZkIiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODY2MzQ4NzV9.BaZPjGYSzYqEygY4lVNggFUJ6jucl2_tlSOudOCtQJ0
 

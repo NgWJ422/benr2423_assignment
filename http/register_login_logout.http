@@ -2,7 +2,7 @@
 //test to see what is encoded in jwt
 ###
 get http://localhost:3000/showjwt
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ4YmJkMzFkNjhkMjA4NzI2NjhlZTZjIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2ODc5NjQ4fQ.6xFE6xMnAlSzg8-B5pTpWNAbYp8BzoNhNpPU1N6KsSQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDczNjUzfQ.vf4lxIiIfpoHIVbUqTpaMu3bErG7_yRvRap71pvlSyQ
 
 ###
 post http://localhost:3000/register
@@ -98,5 +98,5 @@ patch http://localhost:3000/logout
 Content-Type: application/json
 
 {
-    "username":"Ali"
+    "username":"Tan"
 }

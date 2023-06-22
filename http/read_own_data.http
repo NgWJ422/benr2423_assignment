@@ -1,0 +1,36 @@
+###
+//the following are read api for ANYONE to read their own visitor record
+get http://localhost:3000/user/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkOGI3NDI5NDE1YjU0OWEyMGM0Iiwicm9sZSI6InNlY3VyaXR5IiwiaWF0IjoxNjg3NDc0NDg3fQ.inbc3xRsbLC2V1ZCjtk-cSize1E-kDEws-krSBbgTGs
+
+###
+get http://localhost:3000/visitor/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
+
+###
+get http://localhost:3000/doc/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
+
+###
+get http://localhost:3000/address/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
+
+###
+get http://localhost:3000/other/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
+
+###
+get http://localhost:3000/additional/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
+
+###
+get http://localhost:3000/blacklist/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
+
+###
+get http://localhost:3000/detail/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
+
+###
+get http://localhost:3000/visitation/read
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ5NGNkYWE3NDI5NDE1YjU0OWEyMGM5Iiwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE2ODc0NzM3NDJ9.dO7v7NNaOG5LZdHzxG26RuJOl5jTLfkJtYFl4dHdk5w
