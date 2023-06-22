@@ -17,7 +17,7 @@ app.use(express.json())
 
 
 
-mongoose.connect('mongodb+srv://jng010422:f6c2e57f6bB.@vms.ymnvlkt.mongodb.net/')
+mongoose.connect('mongodb+srv://jng010422:f6c2e57f6bB.@vms.ymnvlkt.mongodb.net/vms')
 .then(()=>{
     console.log('connected to mongodb')
     app.listen(3000,() => {

@@ -27,3 +27,6 @@ imagine 1 machine and only 1 user can login at a time
 
 
 //redo crows'foot notation, ERD
+
+//to use this code
+remember to download mongoose, nodemon,jsonwebtoken,express and dotenv
