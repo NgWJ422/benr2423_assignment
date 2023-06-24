@@ -22,7 +22,8 @@
 //RUD all data
 //(can register itself as visitor since he is the boss)(keep record on the people who enter the residential area)
 //blacklist visitor
-//delete user data(including security and visitor),must delete visitor data first before user account can be deleted
+//delete user data(including security and visitor)
+//after delete user can create new visitor profile
 
 //one user one visitor
 //multiple user can login at a time
@@ -32,6 +33,7 @@ remember to download mongoose,jsonwebtoken,express and dotenv
 
 //to make it become secure
 admin need to change Access_token_secret(secret token for jsonwebtoken)
+refresh token
 
 //to improve this code
 bcrypt can be implemented to store password in database

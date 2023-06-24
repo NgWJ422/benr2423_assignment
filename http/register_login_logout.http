@@ -98,5 +98,5 @@ patch http://localhost:3000/logout
 Content-Type: application/json
 
 {
-    "username":"Tan"
+    "username":"NG"
 }

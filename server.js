@@ -671,13 +671,14 @@ app.patch('/security/visitation/update/:id',authenticateToken,async(req,res)=>{
 })
 
 //admin wants to delete a visitor information
+//after delete user can create new visitor profile
 app.delete('/admin/visitor/deleteall/:id',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
   if(a.login_status=='login'){
   try {
     if(req.user.role=='admin' ){
       const vid = req.params.id
-      await User.updateOne({_id:req.user.user_id},{$unset: { visitor_id: "" }})
+      await User.updateOne({visitor_id:vid},{$unset: {visitor_id: ""}})
       await Visitor.deleteMany({_id : vid}),
       await Document.deleteOne({visitor_id: vid}),
       await Address.deleteMany({visitor_id: vid}),
@@ -700,21 +701,18 @@ app.delete('/admin/visitor/deleteall/:id',authenticateToken,async(req,res)=>{
   }
 })
 
-//admin can only delete user account if it's vistor document is deleted
+
 app.delete('/admin/user/delete/:id',authenticateToken,async(req,res)=>{
   const a = await User.findOne({_id:req.user.user_id})
   
   if(a.login_status=='login'){
         try {
           if(req.user.role=='admin' ){
-            if(a.visitor_id != null){
-              res.send('please delete visitor data first')
-          }else{
             const vid = req.params.id
             await User.deleteMany({_id : vid})
             .then(result=>{
             res.status(200).json(result)
-            })}
+            })
           }else{
             res.send('you have no permission(not admin )')
           }
