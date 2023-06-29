@@ -9,7 +9,7 @@
  
 3. security
 //(can register itself as visitor)(keep record on the people who enter the residential area)
-//RU all visitor data(not user data)
+//R all visitor data(not user data)
 //check visitor's data(overtime, blacklist)
 //can update visitor data:
 //1. blacklist,2. detail,3. visitation
